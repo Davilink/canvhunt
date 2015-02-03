@@ -1,0 +1,10 @@
+body  {
+	width: 50%;
+	margin: 20px auto;
+}
+
+canvas#canvHunt {
+	border: 1px solid black;
+	/* Center le texte pour les navigateur ne supportant pas les canvas */
+	text-align: center;
+}
