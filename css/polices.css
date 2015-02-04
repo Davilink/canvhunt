@@ -1,0 +1,24 @@
+@font-face {
+  font-family: ArchitectsDaughter;
+  src: url('../polices/Architects_Daughter/ArchitectsDaughter.ttf');
+}
+
+@font-face {
+  font-family: Bangers;
+  src: url('../polices/Bangers/Bangers.ttf');
+}
+
+@font-face {
+  font-family: Courgette;
+  src: url('../polices/Courgette/Courgette-Regular.ttf');
+}
+
+@font-face {
+  font-family: Orbitron;
+  src: url('../polices/Orbitron/Orbitron-Regular.ttf');
+}
+
+@font-face {
+  font-family: ShadowsIntoLight;
+  src: url('../polices/Shadows_Into_Light/ShadowsIntoLight.ttf');
+}

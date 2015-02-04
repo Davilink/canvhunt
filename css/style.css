@@ -10,4 +10,3 @@ canvas#canvHunt {
 	/* On affiche une cible sur le canvas */
 	cursor: url("../images/viseurRouge.png") 16 16, crosshair;
 }
-
