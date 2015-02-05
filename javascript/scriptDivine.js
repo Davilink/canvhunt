@@ -24,31 +24,31 @@ function genererCible(){
 	
 function deplacer.x(){
 	var droite = +1;
-	var gauche = -3;
+	//var gauche = -3;
 	var x = oCanvas.width;
 
 	
-	if (x <= oCanvas.width){
-		x + = droite
+	if (x > oCanvas.width){
+		droite = -2;
 		}
 
 	else{
-		x + = gauche
+		x - = droite;
 	}
 	dessinerCible();
 }
 
 function deplacer.y(){
 	var haut = +1;
-	var bas = -3;
+	//var bas = -3;
 	var y = oCanvas.height/2;
 	
-	if (y <= oCanvas.height){
-		y + = haut
+	if (y >= oCanvas.height){
+		 haut = -2
 		}
 
 	else{
-		y - = bas
+		y - = haut
 	}
 	dessinerCible();
 	
