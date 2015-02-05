@@ -1,10 +1,10 @@
 // on cree une fonction globale pour le nombre de cible
 
 var nbCible;
-
-document.addEventListener ("DOMContentLoaded", function () {
+var T = setIterval(function(){deplacerCible()}, 2000);
+/*document.addEventListener ("DOMContentLoaded", function () {
 	setInterval(deplacerCible,1000);
-}
+}*/
 
 //debut de la fonction
 function genererCible(){
@@ -27,7 +27,7 @@ function genererCible(){
 		 cibles.push(cible)
 	}
 	
-function deplacer.x(){
+function deplacerCible(){
 	for (var i=0; i<nbCible; i++){
 		var  cible_direction.droite = Math.floor((Math.random() * 0) + 1);
 		var cible_direction.gauche = Math.floor((Math.random() * 0) - 1);
@@ -44,7 +44,7 @@ function deplacer.x(){
 	dessinerCible();
 }
 
-
+}
  function dessinerCible(){
 	 ctx.arc(x,y,10,0, 2*Math.PI);
 		ctx.fill();
