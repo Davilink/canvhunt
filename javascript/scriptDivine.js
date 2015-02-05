@@ -13,47 +13,37 @@ function genererCible(){
 		y:0
 	}
 	nbCibles = 25;
-	//tableau de generateur de cibles
-	 cibles = new Array();
+	
 	 //boucles qui cree nos cibles
 	for(var i=0; i<nbCible; i++){
-		 cible.x = Math.floor((Math.random() * oCanvas.width) + 0);
-		 cible.y = Math.floor((Math.random() * oCanvas.height/2) + 0);
+		var  cible_direction.droite = Math.floor((Math.random() * 0) + 1);
+		var  cible_direction.gauche = Math.floor((Math.random() * 0) - 1);
+		 if( cible_direction.droite){
+			 x = 0;
+		 }
+		 else{
+			 x = oCanvas.width;
+		 }
 		 cibles.push(cible)
 	}
 	
 function deplacer.x(){
-	var droite = +1;
-	//var gauche = -3;
-	var x = oCanvas.width;
-
-	
-	if (x > oCanvas.width){
-		droite = -2;
-		}
-
-	else{
-		x - = droite;
+	for (var i=0; i<nbCible; i++){
+		var  cible_direction.droite = Math.floor((Math.random() * 0) + 1);
+		var cible_direction.gauche = Math.floor((Math.random() * 0) - 1);
+		var cible[i].direction=null;
+	 if(cibles[i].direction == cible_direction.droite)	{
+		x++;
+	 } 
+		
+	 if(cibles[i].direction == cible_direction.gauche)	{
+		x--;
+	 } 
+		
 	}
 	dessinerCible();
 }
 
-function deplacer.y(){
-	var haut = +1;
-	//var bas = -3;
-	var y = oCanvas.height/2;
-	
-	if (y >= oCanvas.height){
-		 haut = -2
-		}
-
-	else{
-		y - = haut
-	}
-	dessinerCible();
-	
-}
-}
 
  function dessinerCible(){
 	 ctx.arc(x,y,10,0, 2*Math.PI);
