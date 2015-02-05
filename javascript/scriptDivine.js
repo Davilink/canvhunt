@@ -1,7 +1,7 @@
 // on cree une fonction globale pour le nombre de cible
 
 var nbCible;
-var cibles;
+
 document.addEventListener ("DOMContentLoaded", function () {
 	setInterval(deplacerCible,1000);
 }
@@ -17,21 +17,44 @@ function genererCible(){
 	 cibles = new Array();
 	 //boucles qui cree nos cibles
 	for(var i=0; i<nbCible; i++){
-		cible:{[i].x, [i].y};
-		cibles.push(cible)
+		 cible.x = Math.floor((Math.random() * oCanvas.width) + 0);
+		 cible.y = Math.floor((Math.random() * oCanvas.height/2) + 0);
+		 cibles.push(cible)
 	}
-	//console.log("cibles")
-	//fonction permettant de laisser une marge de temps entre les cibles
-}
 	
-var droite= +1;
-function deplacerCible(){
-		
-		if (x < canvas.width){
-		x += gauche;
+function deplacer.x(){
+	var droite = +1;
+	var gauche = -3;
+	var x = oCanvas.width;
+
+	
+	if (x <= oCanvas.width){
+		x + = droite
 		}
-		dessinerCible();
- }
+
+	else{
+		x + = gauche
+	}
+	dessinerCible();
+}
+
+function deplacer.y(){
+	var haut = +1;
+	var bas = -3;
+	var y = oCanvas.height/2;
+	
+	if (y <= oCanvas.height){
+		y + = haut
+		}
+
+	else{
+		y + = gauche
+	}
+	dessinerCible();
+	
+}
+}
+
  function dessinerCible(){
 	 ctx.arc(x,y,10,0, 2*Math.PI);
 		ctx.fill();
