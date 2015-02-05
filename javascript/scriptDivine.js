@@ -1,10 +1,10 @@
 // on cree une fonction globale pour le nombre de cible
 
 var nbCible;
-var cibles;
-document.addEventListener ("DOMContentLoaded", function () {
+var T = setIterval(function(){deplacerCible()}, 2000);
+/*document.addEventListener ("DOMContentLoaded", function () {
 	setInterval(deplacerCible,1000);
-}
+}*/
 
 //debut de la fonction
 function genererCible(){
@@ -13,25 +13,38 @@ function genererCible(){
 		y:0
 	}
 	nbCibles = 25;
-	//tableau de generateur de cibles
-	 cibles = new Array();
+	
 	 //boucles qui cree nos cibles
 	for(var i=0; i<nbCible; i++){
-		cible:{[i].x, [i].y};
-		cibles.push(cible)
+		var  cible_direction.droite = Math.floor((Math.random() * 0) + 1);
+		var  cible_direction.gauche = Math.floor((Math.random() * 0) - 1);
+		 if( cible_direction.droite){
+			 x = 0;
+		 }
+		 else{
+			 x = oCanvas.width;
+		 }
+		 cibles.push(cible)
 	}
-	//console.log("cibles")
-	//fonction permettant de laisser une marge de temps entre les cibles
-}
 	
-var droite= +1;
 function deplacerCible(){
+	for (var i=0; i<nbCible; i++){
+		var  cible_direction.droite = Math.floor((Math.random() * 0) + 1);
+		var cible_direction.gauche = Math.floor((Math.random() * 0) - 1);
+		var cible[i].direction=null;
+	 if(cibles[i].direction == cible_direction.droite)	{
+		x++;
+	 } 
 		
-		if (x < canvas.width){
-		x += gauche;
-		}
-		dessinerCible();
- }
+	 if(cibles[i].direction == cible_direction.gauche)	{
+		x--;
+	 } 
+		
+	}
+	dessinerCible();
+}
+
+}
  function dessinerCible(){
 	 ctx.arc(x,y,10,0, 2*Math.PI);
 		ctx.fill();
