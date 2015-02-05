@@ -3,10 +3,31 @@ body  {
 	margin: 20px auto;
 }
 
+div {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+div:first-child {
+	width: 800px;
+	height: 500px;
+}
+
+canvas {
+	position: absolute;	
+}
+
+canvas#arrierePlan {
+	z-index: 0;
+}
+
 canvas#canvHunt {
 	border: 1px solid black;
 	/* Center le texte pour les navigateur ne supportant pas les canvas */
 	text-align: center;
 	/* On affiche une cible sur le canvas */
 	cursor: url("../images/viseurRouge.png") 16 16, crosshair;
+	z-index: 1;
 }
+
+
