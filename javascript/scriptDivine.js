@@ -48,7 +48,7 @@ function deplacer.y(){
 		}
 
 	else{
-		y + = gauche
+		y - = bas
 	}
 	dessinerCible();
 	
