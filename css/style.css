@@ -33,4 +33,13 @@ canvas#canvHunt.partieEnCours {
 	cursor: url("../images/viseurRouge.png") 16 16, crosshair;
 }
 
+#controle {
+	text-align: center;
+}
+
+#controle button {
+	height: 32px;
+	vertical-align: middle;
+}
+
 

@@ -1,36 +1,39 @@
 function nouvellePartie() {
   if (isPartieEnCours) {
     //On met le jeux en pause
-    togglePause();
+    togglePlay();
     rep = confirm('Une partie est en cours. Désirez vous continuez quand même et mettre fin à cette partie ?');
     //Si l'utilisateur clique sur annulez ou sur le x (pour fermer la fenêtre),
     //alors on sort de la fonction avec l'instruction return;
     //Sinon le reste de la fonction sera exécuté
-    if (!rep)
+    if (!rep) {
+      togglePlay();
       return;
-    togglePause();
+    }
   }
   cibles = new Array();
   score = 0;
   qteCibleManque = 0;
   qteCibleInterdit = 0;
-  isPlay = false;
   isPartieEnCours = true;
   oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height);
-  document.querySelector('#btn_finPartie').removeAttribute('disabled');
+  btn_finPartie.removeAttribute('disabled');
+  btn_togglePlay.removeAttribute('disabled');
   oCanvas.classList.add('partieEnCours');
   genererCible();
+  togglePlay();
 }
 function finPartie(reussi) {
   //TEST:  score = 800;
   //valeur par défaut
   reussi = reussi || true;
-  document.querySelector('#btn_finPartie').setAttribute('disabled', '');
-  oCanvas.classList.remove('partieEnCours');
   isPartieEnCours = false;
+  btn_finPartie.setAttribute('disabled', '');
+  btn_togglePlay.setAttribute('disabled', '');
+  oCanvas.classList.remove('partieEnCours');
   //Si le jeu est présentement entrain de jouer, on l'arrête
   if(isPlay)
-    togglePause();
+    togglePlay();
   oCtx.save();
   if (reussi)
     dessinerReussite();
@@ -136,7 +139,18 @@ function ecrireMessage(tbl_message) {
     cy += tbl_message[i].size;
   }
 }
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('#btn_nouvellePartie').addEventListener('click', nouvellePartie);
-  document.querySelector('#btn_finPartie').addEventListener('click', finPartie);
-});
+
+function verifierCible() {
+  //Si la cible sort va de gauche à droite et quel sort du canvas,
+  //alors on ajoute 1 à la quantité de cible manqué,
+  //sinon on ajoute 0 ce qui revient à ne rien ajouté.
+  for(var i=0; i<cibles.length; i++) {
+    if(cibles[i].direction == GAUCHE_DROITE)
+      qteCibleManque += (cibles[i].x > oCanvas.width) ? 1 : 0;
+    else
+      qteCibleManque += (cibles[i].x < 0 ) ? 1 : 0;
+  }
+  
+  if(qteCibleManque > MAX_CIBLE_MANQUE)
+    finPartie(false);
+}
