@@ -20,6 +20,8 @@ var isPartieEnCours = false;
 var oCanvas, oCtx;
 //Contient la référence pour le canvas arrière-plan et le contexte de ce même canvas
 var oCanvasAP, oCtxAP;
+//Contient la référence des contrôle du jeu
+var btn_nouvellePartie, btn_finPartie, btn_togglePlay;
 //Contient le nombre de cible autorisé dans l'aire de jeu
 var maxCible = 10;
 
@@ -37,6 +39,14 @@ function init() {
   oCtx = oCanvas.getContext('2d');
   oCanvasAP = document.querySelector("#arrierePlan");
   oCtxAP = oCanvasAP.getContext('2d');
+  btn_nouvellePartie = document.querySelector('#btn_nouvellePartie');
+  btn_finPartie = document.querySelector('#btn_finPartie');
+  btn_togglePlay = document.querySelector('#btn_togglePlay');
+  
+  btn_nouvellePartie.addEventListener('click', nouvellePartie);
+  btn_finPartie.addEventListener('click', finPartie);
+  btn_togglePlay.addEventListener('click', togglePlay);
+  
   dessinerArrierePlan();
 }
 
@@ -50,8 +60,8 @@ function nonImplemente(fonctionAppelante) {
   console.log('Nom implémenté pour le moment');
 }
 
-if (typeof togglePause == 'undefined')
-  var togglePause = nonImplemente('togglePause');
+if (typeof togglePlay == 'undefined')
+  var togglePlay = nonImplemente('togglePlay');
 if (typeof genererCible == 'undefined')
   var genererCible = nonImplemente('genererCible');
 if (typeof verifierCible == 'undefined')
