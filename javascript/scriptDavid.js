@@ -18,6 +18,7 @@ function nouvellePartie() {
   isPartieEnCours = true;
   oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height);
   document.querySelector('#btn_finPartie').removeAttribute('disabled');
+  oCanvas.classList.add('partieEnCours');
   genererCible();
 }
 function finPartie(reussi) {
@@ -25,6 +26,7 @@ function finPartie(reussi) {
   //valeur par défaut
   reussi = reussi || true;
   document.querySelector('#btn_finPartie').setAttribute('disabled', '');
+  oCanvas.classList.remove('partieEnCours');
   isPartieEnCours = false;
   //Si le jeu est présentement entrain de jouer, on l'arrête
   if(isPlay)

@@ -26,8 +26,11 @@ canvas#canvHunt {
 	/* Center le texte pour les navigateur ne supportant pas les canvas */
 	text-align: center;
 	/* On affiche une cible sur le canvas */
-	cursor: url("../images/viseurRouge.png") 16 16, crosshair;
 	z-index: 1;
+}
+
+canvas#canvHunt.partieEnCours {
+	cursor: url("../images/viseurRouge.png") 16 16, crosshair;
 }
 
 
