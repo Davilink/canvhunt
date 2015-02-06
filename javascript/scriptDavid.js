@@ -1,21 +1,3 @@
-  //Permettre de connaitre si une partie est en cours
-  //La partie peut être en cours même si elle est sur pause
-
-function nonImplemente(fonctionAppelante) {
-  if (fonctionAppelante) {
-    message = function () {
-      console.log('Nom implémenté pour le moment', fonctionAppelante);
-    }
-    return message;
-  }
-  console.log('Nom implémenté pour le moment');
-}
-if (typeof togglePause == 'undefined')
-togglePause = nonImplemente('togglePause');
-
-if (typeof genererCible == 'undefined')
-  genererCible = nonImplemente('genererCible');
-
 function nouvellePartie() {
   if (isPartieEnCours) {
     //On met le jeux en pause
@@ -34,11 +16,19 @@ function nouvellePartie() {
   qteCibleInterdit = 0;
   isPlay = false;
   isPartieEnCours = true;
+  oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+  document.querySelector('#btn_finPartie').removeAttribute('disabled');
   genererCible();
 }
-function finPartie(reussi = true) {
+function finPartie(reussi) {
   //TEST:  score = 800;
-  oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+  //valeur par défaut
+  reussi = reussi || true;
+  document.querySelector('#btn_finPartie').setAttribute('disabled', '');
+  isPartieEnCours = false;
+  //Si le jeu est présentement entrain de jouer, on l'arrête
+  if(isPlay)
+    togglePause();
   oCtx.save();
   if (reussi)
     dessinerReussite();
@@ -103,28 +93,40 @@ function dessinerEchec() {
   ecrireMessage(tbl_message);
 }
 
-function setFont(size, fontFamily, color) {
+function setFont(size, fontFamily) {
   oCtx.font = size + 'px ' + fontFamily;
-  if (color)
-    oCtx.fillStyle = color;
 }
 
 //TODO: ajouter un retour de ligne sur la ligne du texte dépasse le canevas
 //TODO: ajouter la possibilité de tracer un trait
+//TODO: ajouter un cadre pour contenir le message
 function ecrireMessage(tbl_message) {
   var cx;
   var cy;
-  var blocHauteur = 0;
+  var blocHauteur = 0, blocLargeur = 0;
   for (var i = 0; i < tbl_message.length; i++) {
     blocHauteur += tbl_message[i].size;
+    
+    setFont(tbl_message[i].size, 'ArchitectsDaughter');
+    var largeurTextCalc = oCtx.measureText(tbl_message[i].text).width;
+    if(blocLargeur < largeurTextCalc)
+      blocLargeur = largeurTextCalc;
   }
   
   //On commence l'écriture à ce point précis dans le canvas pour centrer verticalement
   //le bloc de contenu
   cy = oCanvas.height / 2 - blocHauteur / 2;
+  
+ /* oCtx.beginPath();
+  oCtx.rect(oCanvas.width / 2 - blocLargeur / 2, oCanvas.height / 2 - blocHauteur /2 -50, blocLargeur, blocHauteur);
+  oCtx.strokeStyle = 'black';
+  oCtx.fillStyle = 'rgb(247, 199, 69)';
+  oCtx.closePath();
+  oCtx.stroke();
+  oCtx.fill();*/
   for (var i = 0; i < tbl_message.length; i++) {
-    setFont(tbl_message[i].size, 'ArchitectsDaughter', tbl_message[i].color);
     //On permet de centrer horizontalement le texte
+    oCtx.fillStyle = tbl_message[i].color;
     cx = oCanvas.width / 2 - oCtx.measureText(tbl_message[i].text).width / 2;
     oCtx.fillText(tbl_message[i].text, cx, cy);
     //On incrémente le point y avec le size du texte que nous venons d'écrire pour que
@@ -134,4 +136,5 @@ function ecrireMessage(tbl_message) {
 }
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#btn_nouvellePartie').addEventListener('click', nouvellePartie);
+  document.querySelector('#btn_finPartie').addEventListener('click', finPartie);
 });
