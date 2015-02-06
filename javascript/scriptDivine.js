@@ -13,9 +13,9 @@ var nbCibles;
 //debut de la fonction
 function genererCible(){
 
-	nbCibles = 25;
-	
-	
+	nbCibles = 50;
+var Canvas_height = oCanvas.height/2;
+var posY =  0;
 	
 	
 	 //boucles qui cree nos cibles
@@ -29,36 +29,53 @@ function genererCible(){
 		}
 		 if( cible.direction){
 			 cible.x = 0;
+		
 		 }
 		 else{
 			 cible.x = oCanvas.width;
+			 	
 		 }
-		 cibles.push(cible);
+		 min = oCanvas.height;
+		 max = oCanvas.width;
+	    cible.y =  (Math.round(Math.random() * (min - max))  + Canvas_height);
+		
+		cibles.push(cible);
+	
 
 	}
-	 t = setInterval(deplacerCible,1000);
+	
+	 t = setInterval(deplacerCible,1);
 }
 function deplacerCible(){
+	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
+	oCtx.beginPath();
+	
 	for (var i=0; i<cibles.length; i++){
 		
 	 if(cibles[i].direction)	{
 		cibles[i].x++;
+		
 	 } 
 		
 	 else{
 		cibles[i].x--;
 	 } 
 	
-
+	
 	}
 
-	dessinerCible();
+	t = setInterval(dessinerCible(),1);
 }
  function dessinerCible(){
+	 
+	 oCtx.beginPath();
+	 
 	 for(i=0; i<cibles.length ;  i++){
 	 oCtx.beginPath();
 	 oCtx.arc(cibles[i].x,cibles[i].y,10,0, 2*Math.PI);
 		oCtx.fill();
 		oCtx.stroke();	
-	 }
+	 
+	 // t = setInterval(genererCible,10);
+ }
  }
