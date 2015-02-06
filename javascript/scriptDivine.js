@@ -23,7 +23,7 @@ function genererCible(){
 			var cible = {
 			x:0,
 			y:0,
-			direction:(Math.round(Math.random)== GAUCHE_DROITE)? GAUCHE_DROITE: DROITE_GAUCHE,
+			direction:(Math.round(Math.random())== GAUCHE_DROITE)? GAUCHE_DROITE: DROITE_GAUCHE,
 			vivant:true,
 			enJeu:true
 		}
@@ -49,13 +49,14 @@ function deplacerCible(){
 		cibles[i].x--;
 	 } 
 	
-	dessinerCible();
+
 	}
 
-
+	dessinerCible();
 }
  function dessinerCible(){
 	 for(i=0; i<cibles.length ;  i++){
+	 oCtx.beginPath();
 	 oCtx.arc(cibles[i].x,cibles[i].y,10,0, 2*Math.PI);
 		oCtx.fill();
 		oCtx.stroke();	
