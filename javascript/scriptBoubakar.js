@@ -31,10 +31,11 @@ var souris;
     context.stroke();
 
 
-
+//pause en cours du game
 function togglePlay(){
 
-
+var isPlay=!isPlay
+    t=
 }
 
 
