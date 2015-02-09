@@ -12,15 +12,16 @@ var souris;
 
 function gererClic{
        for(var i=0; i<cibles.length; i++){
-        if(x>cible.x && y>cible.y) {
-            return false;
-        }else if(x==cible.x + cible.longueur && y==cible.y + cible.hauteur){
+     
+         if(x > cible.x + cible.longueur && y > cible.y + cible.hauteur){
 
                score++;
-           }if(score>=MAX_SCORE){
-           FinPartie();
+           }
+
         }
 
+  if(score>=MAX_SCORE){
+           FinPartie();
         }
 }    
     
