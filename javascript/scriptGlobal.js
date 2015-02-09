@@ -23,7 +23,8 @@ var oCanvasAP, oCtxAP;
 //Contient la référence des contrôle du jeu
 var btn_nouvellePartie, btn_finPartie, btn_togglePlay;
 //Contient l'image pour les oiseaux
-var imgOiseau;
+var imgOiseauGAUCHE_DROITE
+var imgOiseauDROITE_GAUCHE
 //Contient le nombre de cible autorisé dans l'aire de jeu
 var maxCible = 10;
 
@@ -59,9 +60,11 @@ function init() {
 	oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
   }
   
-  imgOiseau = new Image();
-  imgOiseau.src = './images/oiseau.svg';
-  imgOiseau.onload = function () {
+  imgOiseauGAUCHE_DROITE = new Image();
+  imgOiseauDROITE_GAUCHE = new Image();
+  imgOiseauGAUCHE_DROITE.src = './images/oiseauGAUCHE_DROITE.svg';
+  imgOiseauDROITE_GAUCHE.src = './images/oiseauDROITE_GAUCHE.svg';
+  imgOiseauDROITE_GAUCHE.onload = function () {
 	btn_nouvellePartie.removeAttribute('disabled');
   }
 }

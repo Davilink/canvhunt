@@ -71,8 +71,13 @@ function deplacerCible(){
 	//t = setInterval(dessinerCible,1);
 }
  function dessinerCible(){
+	 var imgOiseau;
 	 for(i=0; i<cibles.length ;  i++){
 		 if (cibles[i].vivant == true && cibles[i].enJeu == true){
+			 if(cibles[i].direction == GAUCHE_DROITE)
+				imgOiseau = imgOiseauGAUCHE_DROITE;
+			else
+				imgOiseau = imgOiseauDROITE_GAUCHE;
 			oCtx.drawImage(imgOiseau, 0,0, imgOiseau.width, imgOiseau.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
 		 }
  }
