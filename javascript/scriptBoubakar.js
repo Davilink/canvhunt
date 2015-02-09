@@ -5,15 +5,16 @@ var context = position.getContext('2d');
 var souris;
 */
   
-        var x = event.clientX;
-        var y = event.clientY;
+      
 
         //atteindre la cible a diffents endroits
 
-function gererClic{
-       for(var i=0; i<cibles.length; i++){
+function gererClic(event){
+         var x = event.clientX;
+        var y = event.clientY;
+        for(var i=0; i<cibles.length; i++){
      
-         if(x > cible.x + cible.longueur && y > cible.y + cible.hauteur){
+         if(x > cibles[i].x && x < cibles[i].x + cibles[i].longueur && y > cibles[i].y && y < cibles[i].y + cibles[i].hauteur){
 
                score++;
            }
