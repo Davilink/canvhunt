@@ -27,8 +27,8 @@ var posY =  0;
 			y:(Math.round(Math.random() * (min - max))  + Canvas_height),
 			direction:(Math.round(Math.random())== GAUCHE_DROITE)? GAUCHE_DROITE: DROITE_GAUCHE,
 			vitesse : (Math.round(Math.random() * 50) +100),
-			longueur=(Math.round(Math.random() * 10) +40),
-			hauteur=(Math.round(Math.random() * 10) +30),
+			longueur:(Math.round(Math.random() * 10) +40),
+			hauteur:(Math.round(Math.random() * 10) +30),
 			vivant:true,
 			enJeu:true
 		}
