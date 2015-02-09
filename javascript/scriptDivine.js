@@ -32,7 +32,7 @@ var posY =  0;
 			vivant:true,
 			enJeu:true
 		}
-		if(vivant = true && enjeu = true){
+		
 			
 		 if( cible.direction){
 			 cible.x = 0;
@@ -42,37 +42,33 @@ var posY =  0;
 			 cible.x = oCanvas.width;
 			 	
 		 }
-		 min = 0;
-		 max = 400;
+		min = 0;
+		max = 400;
 	    cible.y;
 		cibles.push(cible);
 		}
-	}
-		
-		else (){
-			cibles.push(cible)=0;
-		}
-
+	
 	}
 
 }
 function deplacerCible(){
 	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
 	oCtx.beginPath();
-	
 	for (var i=0; i<cibles.length; i++){
+	if (cible.vivant == true && cible.enjeu == true){
 
-	 if(cibles[i].direction)	{
-		cibles[i].x+= cibles[i].vitesse
+		if(cibles[i].direction)	{
+			cibles[i].x+= cibles[i].vitesse;
+		} 
+		
+		else{
+			cibles[i].x-= cibles[i].vitesse;
 	
-		
-	 } 
-		
-	 else{
-		cibles[i].x-= cibles[i].vitesse;
-	
-	 } 
-		
+		} 
+	}
+		else{
+			cibles.push(cible)=0;
+		}
 	
 	}
 
@@ -81,14 +77,14 @@ function deplacerCible(){
  function dessinerCible(){
 	 oCtx.beginPath();
 	 for(i=0; i<cibles.length ;  i++){
-		 if (vivant = true && enjeu = true){
-	 oCtx.beginPath();
-	 oCtx.rect(cibles[i].x,cibles[i].y,cible.longueur,cible.hauteur);
-		oCtx.fill();
-		oCtx.stroke();	
+		 if (cible.vivant == true && cible.enjeu == true){
+			oCtx.beginPath();
+			oCtx.rect(cibles[i].x,cibles[i].y,cible.longueur,cible.hauteur);
+			oCtx.fill();
+			oCtx.stroke();	
 		 }
 		 else{
-			 oCtx.clearRectrect(cibles[i].x,cibles[i].y,cible.longueur,cible.hauteur);
+			 
 		 }
 	 
  }
