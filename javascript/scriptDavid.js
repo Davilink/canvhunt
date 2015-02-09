@@ -27,7 +27,7 @@ function nouvellePartie() {
 function finPartie(reussi) {
   //TEST:  score = 800;
   //valeur par défaut
-  reussi = reussi || true;
+  reussi = (typeof reussi == 'undefined') ? true : reussi;
   isPartieEnCours = false;
   btn_finPartie.setAttribute('disabled', '');
   btn_togglePlay.setAttribute('disabled', '');

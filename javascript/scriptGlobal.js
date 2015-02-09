@@ -27,7 +27,7 @@ var maxCible = 10;
 
 //Détermine le maximum de cible manqué autorisé
 var MAX_CIBLE_MANQUE = 3;
-//const MAX_SCORE	= 20;
+var MAX_SCORE = 10;
 //Détermine vitesse de déplacement pour le setInterval
 var VITESSE	= 10
 //Utilisé pour la direction
@@ -67,12 +67,5 @@ function nonImplemente(fonctionAppelante) {
   }
   console.log('Nom implémenté pour le moment');
 }
-
-if (typeof togglePlay == 'undefined')
-  var togglePlay = nonImplemente('togglePlay');
-if (typeof genererCible == 'undefined')
-  var genererCible = nonImplemente('genererCible');
-if (typeof verifierCible == 'undefined')
-  var verifierCible = nonImplemente('verifierCible');
 
 window.addEventListener('DOMContentLoaded', init);
