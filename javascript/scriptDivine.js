@@ -16,7 +16,8 @@ function genererCible(){
 	nbCibles = 50;
 var Canvas_height = oCanvas.height/2;
 var posY =  0;
-	
+var min = 0;
+var max = 400;
 	
 	 //boucles qui cree nos cibles
 
@@ -42,15 +43,12 @@ var posY =  0;
 			 cible.x = oCanvas.width;
 			 	
 		 }
-		min = 0;
-		max = 400;
-	    cible.y;
 		cibles.push(cible);
 		}
 	
 	}
 
-}
+
 function deplacerCible(){
 	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
 	oCtx.beginPath();
@@ -66,7 +64,8 @@ function deplacerCible(){
 	
 		} 
 	}
-		
+	
+		verifierCible();
 	}
 
 	//t = setInterval(dessinerCible,1);
