@@ -20,6 +20,7 @@ function nouvellePartie() {
   btn_finPartie.removeAttribute('disabled');
   btn_togglePlay.removeAttribute('disabled');
   oCanvas.classList.add('partieEnCours');
+  dessinerArrierePlan();
   genererCible();
   togglePlay();
 }

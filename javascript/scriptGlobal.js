@@ -47,7 +47,11 @@ function init() {
   btn_finPartie.addEventListener('click', finPartie);
   btn_togglePlay.addEventListener('click', togglePlay);
   
-  dessinerArrierePlan();
+  var img = new Image();
+  img.src = "./images/canvHunt.jpg";
+  img.onload = function () {
+	oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
+  }
 }
 
 function nonImplemente(fonctionAppelante) {
