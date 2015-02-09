@@ -64,15 +64,18 @@ function deplacerCible(){
 	
 		} 
 	}
-	
 		verifierCible();
+		dessinerCible();
 	}
 
 	//t = setInterval(dessinerCible,1);
 }
  function dessinerCible(){
+	 
 	 oCtx.beginPath();
+	 
 	 for(i=0; i<cibles.length ;  i++){
+		 
 		 if (cibles[i].vivant == true && cibles[i].enjeu == true){
 			oCtx.beginPath();
 			oCtx.rect(cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
