@@ -64,10 +64,10 @@ function deplacerCible(){
 	
 		} 
 	}
+		
+	}
 		verifierCible();
 		dessinerCible();
-	}
-
 	//t = setInterval(dessinerCible,1);
 }
  function dessinerCible(){
