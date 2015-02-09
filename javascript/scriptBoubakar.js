@@ -1,6 +1,6 @@
 //Positionnement de la souris sur la cible et gestion du clic
 
-var position = document.getElementById('viseur');
+var position = document.getElementById('canvHunt');
 var context = position.getContext('2d');
 var souris;
 
@@ -36,11 +36,11 @@ function togglePlay(){
 
 if(isPlay){
     clearInterval(t);
-    document.getElementById('viseur').removeEventlistener('click', gererClic(event));
+    document.getElementById('canvHunt').removeEventlistener('click', gererClic(event));
     }else{
-        setInterval(function deplacerCible(){t,1});
+        t=setInterval(deplacerCible,1);
         
-        document.getElementById('viseur').addEventlistener('click', gererClic(event));
+        document.getElementById('canvHunt').addEventlistener('click', gererClic(event));
     }
     isPlay=!isPlay;
 }
