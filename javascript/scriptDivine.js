@@ -25,11 +25,11 @@ var max = 400;
 	for(var i=0; i<nbCibles; i++){
 			var cible = {
 			x:0,
-			y:(Math.round(Math.random() * (min - max))  + Canvas_height),
+			y:random(0, 400),
 			direction:(Math.round(Math.random())== GAUCHE_DROITE)? GAUCHE_DROITE: DROITE_GAUCHE,
-			vitesse : (Math.round(Math.random() * 50) +100),
-			longueur:(Math.round(Math.random() * 10) +40),
-			hauteur:(Math.round(Math.random() * 10) +30),
+			vitesse : random(5, 50),
+			longueur:random(40, 70),
+			hauteur:random(30, 50),
 			vivant:true,
 			enJeu:true
 		}
@@ -47,6 +47,11 @@ var max = 400;
 		}
 	
 	}
+	
+function random(min, max) {
+	return parseInt(Math.random() * (max - min) + min);
+}
+
 
 
 function deplacerCible(){
