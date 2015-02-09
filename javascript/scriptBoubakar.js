@@ -10,10 +10,6 @@ var souris;
 
         //atteindre la cible a diffents endroits
 
-        while (score<15) {
-
-            score++;
-        }
 
        for(var i=0; i<cibles.length; i++){
         if(x>cible.x && y>cible.y) {
@@ -33,14 +29,14 @@ var souris;
 
 //pause en cours du game
 function togglePlay(){
-var isPlay=t;
-if(var isPlay=!isPlay){
-    var isPlay=clearInterval(t);
-    document.getElementById('viseur').removeEventlistener('click', function gererClic(event));
+
+if(isPlay){
+    clearInterval(t);
+    document.getElementById('viseur').removeEventlistener('click', gererClic(event));
     }else{
-        var isPlay=setInterval(function deplacerCible(){t});
-        var isPlay+=t;
-        document.getElementById('viseur').addEventlistener('click', function gererClic(event));
+        setInterval(function deplacerCible(){t,1});
+        
+        document.getElementById('viseur').addEventlistener('click', gererClic(event));
     }
 }
 
