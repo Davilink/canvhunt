@@ -17,7 +17,7 @@ var souris;
         }else if(x==cible.x && y==cible.y){
 
                score++;
-           }if(score>MAX_SCORE){
+           }if(score>=MAX_SCORE){
            alert('fin de partie');
         }
 
