@@ -16,11 +16,15 @@ var souris;
             return false;
         }else if(x==cible.x && y==cible.y){
 
-               alert(score);
-           }
+               score++;
+           }if(score>MAX_SCORE){
+           alert('fin de partie');
+        }
 
         }
     }, true);
+    
+        
 
 //test sur un carre immobile: si le chasseur clicke sur un element du tableau(exmple: le carre),le score augmente de 1...
     context.strokeRect(0, 0, 45, 45);
@@ -38,6 +42,7 @@ if(isPlay){
         
         document.getElementById('viseur').addEventlistener('click', gererClic(event));
     }
+    isPlay=!isPlay;
 }
 
 
