@@ -46,7 +46,11 @@ function init() {
   btn_nouvellePartie.addEventListener('click', nouvellePartie);
   btn_finPartie.addEventListener('click', finPartie);
   btn_togglePlay.addEventListener('click', togglePlay);
-  
+  //On précharge la police d'écriture
+  setFont('1px', 'ArchitectsDaughter');
+  //On écrit un texte de test en dehors du canvas pour forcer le chargement de la police
+  //Un délai de chargement empêche l'utilisation immédiate de la police	d'écriture
+  oCtx.fillText('test', -100, -100);
   var img = new Image();
   img.src = "./images/canvHunt.jpg";
   img.onload = function () {
