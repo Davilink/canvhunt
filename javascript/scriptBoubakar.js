@@ -33,9 +33,15 @@ var souris;
 
 //pause en cours du game
 function togglePlay(){
-
-var isPlay=!isPlay
-    t=
+var isPlay=t;
+if(var isPlay=!isPlay){
+    var isPlay=clearInterval(t);
+    document.getElementById('viseur').removeEventlistener('click', function gererClic(event));
+    }else{
+        var isPlay=setInterval(function deplacerCible(){t});
+        var isPlay+=t;
+        document.getElementById('viseur').addEventlistener('click', function gererClic(event));
+    }
 }
 
 
