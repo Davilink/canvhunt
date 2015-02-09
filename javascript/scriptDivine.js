@@ -55,7 +55,7 @@ function deplacerCible(){
 	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
 	oCtx.beginPath();
 	for (var i=0; i<cibles.length; i++){
-	if (cible.vivant == true && cible.enjeu == true){
+	if (cible[i].vivant == true && cible[i].enjeu == true){
 
 		if(cibles[i].direction)	{
 			cibles[i].x+= cibles[i].vitesse;
@@ -66,10 +66,7 @@ function deplacerCible(){
 	
 		} 
 	}
-		else{
-			cibles.push(cible)=0;
-		}
-	
+		
 	}
 
 	//t = setInterval(dessinerCible,1);
@@ -77,15 +74,11 @@ function deplacerCible(){
  function dessinerCible(){
 	 oCtx.beginPath();
 	 for(i=0; i<cibles.length ;  i++){
-		 if (cible.vivant == true && cible.enjeu == true){
+		 if (cible[i].vivant == true && cible[i].enjeu == true){
 			oCtx.beginPath();
 			oCtx.rect(cibles[i].x,cibles[i].y,cible.longueur,cible.hauteur);
 			oCtx.fill();
 			oCtx.stroke();	
 		 }
-		 else{
-			 
-		 }
-	 
  }
  }
