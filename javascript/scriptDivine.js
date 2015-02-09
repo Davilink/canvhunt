@@ -71,15 +71,9 @@ function deplacerCible(){
 	//t = setInterval(dessinerCible,1);
 }
  function dessinerCible(){
-	 var new_image = new Image();
-        new_image.src = "images/oiseau.svg"
-        new_image.onload = function(){
-	 
 	 for(i=0; i<cibles.length ;  i++){
 		 if (cibles[i].vivant == true && cibles[i].enJeu == true){
-			ctx.drawImage(new_image,cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
-			
+			oCtx.drawImage(imgOiseau, 0,0, imgOiseau.width, imgOiseau.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
 		 }
- }
  }
  }
