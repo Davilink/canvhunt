@@ -13,7 +13,7 @@ var nbCibles;
 //debut de la fonction
 function genererCible(){
 
-	nbCibles = 50;
+	nbCibles = 10;
 var Canvas_height = oCanvas.height/2;
 var posY =  0;
 var min = 0;
@@ -53,7 +53,7 @@ function deplacerCible(){
 	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
 	oCtx.beginPath();
 	for (var i=0; i<cibles.length; i++){
-	if (cibles[i].vivant == true && cibles[i].enjeu == true){
+	if (cibles[i].vivant == true && cibles[i].enJeu == true){
 
 		if(cibles[i].direction)	{
 			cibles[i].x+= cibles[i].vitesse;
@@ -76,7 +76,7 @@ function deplacerCible(){
 	 
 	 for(i=0; i<cibles.length ;  i++){
 		 
-		 if (cibles[i].vivant == true && cibles[i].enjeu == true){
+		 if (cibles[i].vivant == true && cibles[i].enJeu == true){
 			oCtx.beginPath();
 			oCtx.rect(cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
 			oCtx.fill();
