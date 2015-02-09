@@ -35,7 +35,7 @@ var max = 400;
 		}
 		
 			
-		 if( cible.direction){
+		 if( cible.direction == GAUCHE_DROITE){
 			 cible.x = 0;
 		
 		 }
@@ -55,7 +55,7 @@ function deplacerCible(){
 	for (var i=0; i<cibles.length; i++){
 	if (cibles[i].vivant == true && cibles[i].enJeu == true){
 
-		if(cibles[i].direction)	{
+		if(cibles[i].direction == GAUCHE_DROITE)	{
 			cibles[i].x+= cibles[i].vitesse;
 		} 
 		
