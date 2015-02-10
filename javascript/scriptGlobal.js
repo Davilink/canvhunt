@@ -57,6 +57,7 @@ function init() {
   var img = new Image();
   img.src = "./images/canvHunt.jpg";
   img.onload = function () {
+	//On centre horizontalement et verticalement l'image qui représente le jeu
 	oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
   }
   

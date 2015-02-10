@@ -73,7 +73,7 @@ function dessinerEchec() {
   ];
   tbl_message.push({
     'text': 'Échec',
-    'size': 50,
+    'size': 70,
     'color': 'rgb(255, 217, 5)'
   });
   tbl_message.push({
@@ -110,8 +110,9 @@ function ecrireMessage(tbl_message) {
   var cx;
   var cy;
   var blocHauteur = 0, blocLargeur = 0;
+  var marge = 5;
   for (var i = 0; i < tbl_message.length; i++) {
-    blocHauteur += tbl_message[i].size;
+    blocHauteur += tbl_message[i].size+marge;
     
     setFont(tbl_message[i].size, 'ArchitectsDaughter');
     var largeurTextCalc = oCtx.measureText(tbl_message[i].text).width;
@@ -132,12 +133,13 @@ function ecrireMessage(tbl_message) {
   oCtx.fill();*/
   for (var i = 0; i < tbl_message.length; i++) {
     //On permet de centrer horizontalement le texte
-    oCtx.fillStyle = tbl_message[i].color;
+    setFont(tbl_message[i].size, 'ArchitectsDaughter');
+	oCtx.fillStyle = tbl_message[i].color;
     cx = oCanvas.width / 2 - oCtx.measureText(tbl_message[i].text).width / 2;
     oCtx.fillText(tbl_message[i].text, cx, cy);
     //On incrémente le point y avec le size du texte que nous venons d'écrire pour que
     //le prochain texte apparaissent en dessous
-    cy += tbl_message[i].size;
+    cy += tbl_message[i].size+marge;
   }
 }
 
