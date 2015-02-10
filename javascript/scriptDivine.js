@@ -77,7 +77,6 @@ function deplacerCible(){
 }
  function dessinerCible(){
 	 var imgOiseau;
-	 var imgBoum
 	 for(i=0; i<cibles.length ;  i++){
 		 if (cibles[i].vivant == 0 && cibles[i].enJeu == true){
 			 if(cibles[i].direction == GAUCHE_DROITE)
@@ -87,10 +86,8 @@ function deplacerCible(){
 			oCtx.drawImage(imgOiseau, 0,0, imgOiseau.width, imgOiseau.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
 		 }
 		 else if(cibles[i].vivant == 1){
-			 oCtx.drawImage(imgBoum, 0, 0, imgBoum.width, imgBoum.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
+			 oCtx.drawImage(imgBoum, 0, 0, imgBoum.width, imgBoum.height, cibles[i].x-dim_imgBoum.largeur/2, cibles[i].y-dim_imgBoum.hauteur/2, dim_imgBoum.largeur, dim_imgBoum.hauteur);
 			 cibles[i].vivant = 2;
 		 }
-			
- 
 	 }
  }

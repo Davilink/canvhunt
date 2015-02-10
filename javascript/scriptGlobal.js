@@ -22,9 +22,11 @@ var oCanvas, oCtx;
 var oCanvasAP, oCtxAP;
 //Contient la référence des contrôle du jeu
 var btn_nouvellePartie, btn_finPartie, btn_togglePlay;
-//Contient l'image pour les oiseaux
-var imgOiseauGAUCHE_DROITE
-var imgOiseauDROITE_GAUCHE
+//Contient l'image pour les oiseaux et pour le boum (lorsqu'il sont tiré)
+var imgOiseauGAUCHE_DROITE;
+var imgOiseauDROITE_GAUCHE;
+var imgBoum;
+var dim_imgBoum = { largeur : 150, hauteur : 150};
 //Contient le nombre de cible autorisé dans l'aire de jeu
 var maxCible = 10;
 
@@ -61,11 +63,9 @@ function init() {
 	oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
   }
   
-  var image = new Image();
-  image.src = "images.jpg";
-  image.onload = function (){
-	  oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
-  }
+  imgBoum = new Image();
+  imgBoum.src = "./images/boom.svg";
+  
   imgOiseauGAUCHE_DROITE = new Image();
   imgOiseauDROITE_GAUCHE = new Image();
   imgOiseauGAUCHE_DROITE.src = './images/oiseauGAUCHE_DROITE.svg';
