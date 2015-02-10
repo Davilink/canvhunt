@@ -60,6 +60,11 @@ function init() {
 	oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
   }
   
+  var image = new Image();
+  image.src = "images.jpg";
+  image.onload = function (){
+	  oCtx.drawImage(this, oCanvas.width/2 - this.width/2, oCanvas.height/2 - this.height/2);
+  }
   imgOiseauGAUCHE_DROITE = new Image();
   imgOiseauDROITE_GAUCHE = new Image();
   imgOiseauGAUCHE_DROITE.src = './images/oiseauGAUCHE_DROITE.svg';

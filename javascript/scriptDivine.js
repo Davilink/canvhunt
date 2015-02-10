@@ -30,7 +30,7 @@ var max = 400;
 			vitesse : random(5, 50),
 			longueur:random(40, 70),
 			hauteur:random(30, 50),
-			vivant:true,
+			vivant:0,
 			enJeu:true
 		}
 		
@@ -58,7 +58,7 @@ function deplacerCible(){
 	oCtx.clearRect(0, 0, oCanvas.width, oCanvas.height );
 	oCtx.beginPath();
 	for (var i=0; i<cibles.length; i++){
-	if (cibles[i].vivant == true && cibles[i].enJeu == true){
+	if (cibles[i].vivant == 0 && cibles[i].enJeu == true){
 
 		if(cibles[i].direction == GAUCHE_DROITE)	{
 			cibles[i].x+= cibles[i].vitesse;
@@ -77,13 +77,20 @@ function deplacerCible(){
 }
  function dessinerCible(){
 	 var imgOiseau;
+	 var imgBoum
 	 for(i=0; i<cibles.length ;  i++){
-		 if (cibles[i].vivant == true && cibles[i].enJeu == true){
+		 if (cibles[i].vivant == 0 && cibles[i].enJeu == true){
 			 if(cibles[i].direction == GAUCHE_DROITE)
 				imgOiseau = imgOiseauGAUCHE_DROITE;
 			else
 				imgOiseau = imgOiseauDROITE_GAUCHE;
 			oCtx.drawImage(imgOiseau, 0,0, imgOiseau.width, imgOiseau.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
 		 }
- }
+		 else if(cibles[i].vivant == 1){
+			 oCtx.drawImage(imgBoum, 0, 0, imgBoum.width, imgBoum.height, cibles[i].x,cibles[i].y,cibles[i].longueur,cibles[i].hauteur);
+			 cibles[i].vivant = 2;
+		 }
+			
+ 
+	 }
  }
