@@ -2,11 +2,9 @@ function gererClic(evt){
          var x = evt.clientX - getRelX(oCanvas);
         var y = evt.clientY - getRelY(oCanvas);
         for(var i=0; i<cibles.length; i++){
-         if(x > cibles[i].x && x < cibles[i].x + cibles[i].longueur && y > cibles[i].y && y < cibles[i].y + cibles[i].hauteur && cibles[i].vivant){
-			
+         if(x > cibles[i].x && x < cibles[i].x + cibles[i].longueur && y > cibles[i].y && y < cibles[i].y + cibles[i].hauteur && cibles[i].vivant == 0){
                score++;
-			   cibles[i].vivant = false;
-			   console.log(score);
+			   cibles[i].vivant = 1;
            }
 
         }
@@ -14,6 +12,7 @@ function gererClic(evt){
   if(score>=MAX_SCORE){
            finPartie();
         }
+	playSound();
 }
 
 //Permet d'obtenir la position X de l'élément dans le document.
