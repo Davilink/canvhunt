@@ -7,10 +7,10 @@
 		<link rel="icon" type="image/jpg" href="images/canvhunt.jpg" />
 		<!-- Javascript -->
 		<script type="text/javascript" src="javascript/scriptGlobal.js"></script>
-		<script type="text/javascript" src="javascript/fonctionRaccourci.js"></script>
-		<script type="text/javascript" src="javascript/dessinCanvas.js"></script>
-		<script type="text/javascript" src="javascript/gestionPartie.js"></script>
-		<script type="text/javascript" src="javascript/verificationInteraction.js"></script>
+		<script type="text/javascript" src="javascript/drawCanvasAP.js"></script>
+		<script type="text/javascript" src="javascript/scriptDavid.js"></script>
+		<script type="text/javascript" src="javascript/scriptDivine.js"></script>
+		<script type="text/javascript" src="javascript/scriptBoubakar.js"></script>
 		<script type="text/javascript" src="javascript/sounds.js"></script>
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -35,12 +35,5 @@
 	</button>
 	<button id="btn_finPartie" disabled>Terminé la partie</button>
 </div>
-<p>
-Le but du jeu:
-<ul>
-	<li>Tirer sur les oiseaux et gagner la partie</li>
-	<li>S'il y a plus de 3 oiseaux qui s'échappe vous perdrez la partie.</li>
-</ul>
-</p>
 </body>
 </html>	

@@ -1,3 +1,7 @@
+Waving grass simulation version 1.0
+Ken Fyrstenberg Nilsen (c) 2013 Abdias Software.
+
+
 - 18hiltc
 The sound we using : Guns and War Sound Effects » Shotgun Shooting Things.wav
 URL to the sound : https://www.freesound.org/people/18hiltc/sounds/186049/

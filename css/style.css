@@ -22,7 +22,6 @@ canvas#arrierePlan {
 }
 
 canvas#canvHunt {
-	border: 1px solid black;
 	/* Center le texte pour les navigateur ne supportant pas les canvas */
 	text-align: center;
 	/* On affiche une cible sur le canvas */
@@ -40,6 +39,11 @@ canvas#canvHunt.partieEnCours {
 #controle button {
 	height: 32px;
 	vertical-align: middle;
+}
+
+ul {
+	margin-top: -10px;
+	list-style: none;
 }
 
 
