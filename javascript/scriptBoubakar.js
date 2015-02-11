@@ -1,3 +1,4 @@
+//fonction permettant d atteindre la cible et de verifier si la cible demeurre vivante, si c est pas le cas le score augmente..
 function gererClic(evt){
          var x = evt.clientX - getRelX(oCanvas);
         var y = evt.clientY - getRelY(oCanvas);
@@ -6,15 +7,13 @@ function gererClic(evt){
                score++;
 			   cibles[i].vivant = 1;
            }
-
         }
-
+//si le score atteint le maximum ,fin de partie
   if(score>=MAX_SCORE){
            finPartie();
         }
 	playSound();
 }
-
 //Permet d'obtenir la position X de l'élément dans le document.
 function getRelX(ele) {
 	return (ele == document.body ) ? ele.offsetLeft : ele.offsetLeft + getRelX(ele.parentNode);
@@ -23,17 +22,14 @@ function getRelX(ele) {
 function getRelY(ele) {
 	return (ele == document.body ) ? ele.offsetTop : ele.offsetTop + getRelY(ele.parentNode);
 }
-
-//pause en cours du game
+//pause et play en cours du game
 function togglePlay(){
-
-if(isPlay){
-    clearInterval(t);
-    oCanvas.removeEventListener('click', gererClic);
-    }else{
-        t=setInterval(deplacerCible,500);
-        
-        oCanvas.addEventListener('click', gererClic);
+	if(isPlay){
+		 clearInterval(t);
+		 oCanvas.removeEventListener('click', gererClic);
+    	}else{
+        	t=setInterval(deplacerCible,500);
+		oCanvas.addEventListener('click', gererClic);
     }
     isPlay=!isPlay;
 }
